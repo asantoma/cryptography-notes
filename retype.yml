@@ -2,7 +2,7 @@ input: .
 output: .retype
 url: https://asantoma.github.io/notes/
 branding:
-  title: Project Name
+  title: asantoma's notes
   label: Docs
 links:
 - text: Getting Started
