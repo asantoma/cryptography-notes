@@ -1,6 +1,6 @@
 ---
 order: 0
-label: 00 Introduction
+label: Introduction
 ---
 
 !!!ghost Disclaimer
