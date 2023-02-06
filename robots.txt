@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://asantoma.github.io/notes/sitemap.xml.gz
+Sitemap: https://asantoma.github.io/cryptography-notes/sitemap.xml.gz

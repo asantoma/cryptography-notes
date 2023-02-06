@@ -10,32 +10,34 @@
     <meta name="generator" content="Retype 2.4.0">
 
     <!-- Primary Meta Tags -->
-    <title>Cryptography Notes</title>
-    <meta name="title" content="Cryptography Notes">
-    <meta name="description" content="A collection of notes on cryptography related subjects." />
+    <title>Hill Cipher</title>
+    <meta name="title" content="Hill Cipher">
+    <meta name="description" content="Information and images are taken from Crypto Corner. Additional sources are explicitly mentioned." />
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://asantoma.github.io/cryptography-notes/" />
+    <link rel="canonical" href="https://asantoma.github.io/cryptography-notes/crypto-corner/02-hill/" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://asantoma.github.io/cryptography-notes/">
-    <meta property="og:title" content="Cryptography Notes">
-    <meta property="og:description" content="A collection of notes on cryptography related subjects.">
+    <meta property="og:url" content="https://asantoma.github.io/cryptography-notes/crypto-corner/02-hill/">
+    <meta property="og:title" content="Hill Cipher">
+    <meta property="og:description" content="Information and images are taken from Crypto Corner. Additional sources are explicitly mentioned.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://asantoma.github.io/cryptography-notes/">
-    <meta property="twitter:title" content="Cryptography Notes">
-    <meta property="twitter:description" content="A collection of notes on cryptography related subjects.">
+    <meta property="twitter:url" content="https://asantoma.github.io/cryptography-notes/crypto-corner/02-hill/">
+    <meta property="twitter:title" content="Hill Cipher">
+    <meta property="twitter:description" content="Information and images are taken from Crypto Corner. Additional sources are explicitly mentioned.">
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/cryptography-notes/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="resources/css/retype.css?v=2.4.0.729012199800" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=2.4.0.729012199800" rel="stylesheet" />
 
-    <script type="text/javascript" src="resources/js/config.js?v=2.4.0.729012199800" data-turbo-eval="false" defer></script>
-    <script type="text/javascript" src="resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="resources/js/lunr.js?v=2.4.0.729012199800" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.729012199800" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.729012199800" data-turbo-eval="false" defer></script>
+    <link href="../../resources/css/katex.css?v=2.4.0" rel="stylesheet" />
+    <script id="katex-js" type="text/javascript" src="../../resources/js/katex.js?v=2.4.0" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -50,7 +52,7 @@
                 <!-- Logo -->
                 <div class="flex items-center justify-between h-full py-2 md:w-75">
                     <div class="flex items-center px-2 md:px-6">
-                        <a id="docs-site-logo" href="" class="flex items-center leading-snug text-xl">
+                        <a id="docs-site-logo" href="../../" class="flex items-center leading-snug text-xl">
                             <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">asantoma&#x27;s cryptography notes</span>
                         </a>
                     </div>
@@ -167,13 +169,86 @@
                                 <div id="docs-sidebar-right-toggle"></div>
                 
                                 <!-- Page content  -->
-<doc-anchor-target id="cryptography-notes" class="break-words">
+<doc-anchor-target id="hill-cipher" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#cryptography-notes">#</doc-anchor-trigger>
-        <span>Cryptography Notes</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#hill-cipher">#</doc-anchor-trigger>
+        <span>Hill Cipher</span>
     </h1>
 </doc-anchor-target>
-<p>A collection of notes on cryptography related subjects.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-gray-300 dark:bg-dark-900"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-gray-400 dark:text-dark-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>Disclaimer</h5>
+<p>Information and images are taken from <a href="https://crypto.interactive-maths.com/">Crypto Corner</a>. Additional sources are explicitly mentioned.</p>
+        </div>
+    </div>
+</div>
+<p>The Hill cipher is a polygraphic (that acts on groups of letters, instead of one letter) substitution cipher that is based on matrix operations. This page is focused on <span class="math">2\times2</span> (digraphic) and <span class="math">3\times3</span> (trigraphic) variants of the Hill cipher, but it can be extended to more dimensions. The cipher is more easily explained with an example.</p>
+<doc-anchor-target id="encryption">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#encryption">#</doc-anchor-trigger>
+        <span>Encryption</span>
+    </h2>
+</doc-anchor-target>
+<p>In this scenario, we will use with the English alphabet again. Each letter is represented by its index in the alphabet, starting from 0. We are working with modular operations again <span class="math">\pmod{26}</span>. For example, in a <span class="math">2\times2</span> Hill cipher scenario, let&#x27;s consider the following <span class="math">2\times2</span> key:</p>
+<p><span class="math">K = \begin{pmatrix} H &amp;&amp; I \\ L &amp;&amp; L \end{pmatrix} = \begin{pmatrix} 7 &amp;&amp; 8 \\ 11 &amp;&amp; 11 \end{pmatrix}</span></p>
+<p>The message &quot;short example&quot; will be encrypted. Spaces will be taken out and letters will be written into digraphs represented by 2-dimensional vectors, as such:</p>
+<p><span class="math">M = \begin{pmatrix} S \\ H \end{pmatrix} \begin{pmatrix} O \\ R \end{pmatrix} \begin{pmatrix} T \\ E \end{pmatrix} \begin{pmatrix} X \\ A \end{pmatrix} \begin{pmatrix} M \\ P \end{pmatrix} \begin{pmatrix} L \\ E \end{pmatrix} = \begin{pmatrix} 18 \\ 7 \end{pmatrix} \begin{pmatrix} 14 \\ 17 \end{pmatrix} \begin{pmatrix} 19 \\ 4 \end{pmatrix} \begin{pmatrix} 23 \\ 0 \end{pmatrix} \begin{pmatrix} 12 \\ 15 \end{pmatrix} \begin{pmatrix} 11 \\ 4 \end{pmatrix}</span></p>
+<p>To encrypt each digraph, we perform a matrix multiplication. 2-dimensional matrix multiplication is performed in the following way:</p>
+<p><span class="math">\begin{pmatrix} a &amp;&amp; b \\ c &amp;&amp; d \end{pmatrix} \begin{pmatrix} x &amp;&amp; y \end{pmatrix} = \begin{pmatrix} ax + by \\ cx + dy\end{pmatrix}</span></p>
+<p>In general, when we multiply two matrices, there are two things to keep in mind:</p>
+<ul>
+<li>the first matrix&#x27;s column number must be equal to the second matrix&#x27;s row number</li>
+<li>if the first matrix is of dimension <span class="math">(M, N)</span> and the second matrix is of dimension <span class="math">(N, P)</span>, their product is of dimension <span class="math">(M, P)</span></li>
+</ul>
+<p>The first encrypted digraph is computed as follows:</p>
+<p><span class="math">\begin{pmatrix} 7 &amp;&amp; 8 \\ 11 &amp;&amp; 11 \end{pmatrix} \begin{pmatrix} 18 \\ 7 \end{pmatrix} = \begin{pmatrix} 182 \\ 275 \end{pmatrix} \pmod{26} = \begin{pmatrix} 0 \\ 15 \end{pmatrix} = \begin{pmatrix} A \\ P \end{pmatrix}</span></p>
+<p>Remember we are in the the English alphabet, so we must apply modulus. Each digraph is encrypted like the above operation. After encryption, we can switch back from letter indexes to letters.</p>
+<doc-anchor-target id="decryption">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#decryption">#</doc-anchor-trigger>
+        <span>Decryption</span>
+    </h2>
+</doc-anchor-target>
+<p>For decrpytion, we must compute the inverse of the key matrix.</p>
+<p><span class="math">K^{-1} = d^{-1} \times adj(K)</span>, where <span class="math">d^{-1}</span> is the multiplicative modular inverse of <span class="math">K</span>&#x27;s determinant, and <span class="math">adj(K)</span> is <span class="math">K</span>&#x27;s adjugate matrix.</p>
+<p><span class="math">d = \begin{vmatrix} a &amp;&amp; b \\ c &amp;&amp; d \end{vmatrix} = ad - bc</span></p>
+<p>To be invertible, a matrix must have a non-zero determinant and, <strong>since we are working in the ring of integers modulo 26</strong>, the determinant must be coprime with 26.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+<p>In general, the determinant must be coprime with the alphabet&#x27;s length.</p>
+        </div>
+    </div>
+</div>
+<p><span class="math">adj\begin{pmatrix} a &amp;&amp; b \\ c &amp;&amp; d \end{pmatrix} = \begin{pmatrix} d &amp;&amp; -b \\ -c &amp;&amp; a \end{pmatrix}</span></p>
+<p>After computing <span class="math">K^{-1}</span>, we multiply it with each encrypted digraph to get back to the plaintext. For the example above:</p>
+<p><span class="math">d(K) = \begin{vmatrix} 7 &amp;&amp; 8 \\ 11 &amp;&amp; 11 \end{vmatrix} = 7 \cdot 11 - 8 \cdot 11 = -11 \pmod {26} = -11 + 26 \pmod{26} = 15 \pmod {26}</span></p>
+<p><span class="math">d^{-1} = 15^{-1} \pmod {26} = 7 \pmod {26}</span>, which is a non-zero number coprime with 26.</p>
+<p><span class="math">adj(K) = \begin{pmatrix} 11 &amp;&amp; -8 \\ -11 &amp;&amp; 7 \end{pmatrix} \pmod{26} = \begin{pmatrix} 11 &amp;&amp; 18 \\ 15 &amp;&amp; 17 \end{pmatrix} \pmod{26}</span></p>
+<p><span class="math">K^{-1} = 7\begin{pmatrix} 11 &amp;&amp; 18 \\ 15 &amp;&amp; 17 \end{pmatrix} = \begin{pmatrix} 77 &amp;&amp; 126 \\ 165 &amp;&amp; 49 \end{pmatrix} \pmod{26} = \begin{pmatrix} 25 &amp;&amp; 22 \\ 1 &amp;&amp; 23 \end{pmatrix} \pmod{26}</span></p>
+<p>Let&#x27;s try decrypting the first encrypted digraph, <span class="math">\begin{pmatrix} A \\ P \end{pmatrix} = \begin{pmatrix} 0 \\ 15 \end{pmatrix}</span></p>
+<p><span class="math">K^{-1}\begin{pmatrix} 0 \\ 15 \end{pmatrix} = \begin{pmatrix} 25 &amp;&amp; 22 \\ 1 &amp;&amp; 23 \end{pmatrix} \begin{pmatrix} 0 \\ 15 \end{pmatrix} = \begin{pmatrix} 25 \cdot 0 + 22 \cdot 15 \\ 1 \cdot 0 + 23 \cdot 15 \end{pmatrix} = \begin{pmatrix} 330 \\ 345 \end{pmatrix} \pmod{26} = \begin{pmatrix} 18 \\ 7 \end{pmatrix} \pmod{26} = \begin{pmatrix} A \\ L \end{pmatrix}</span></p>
 
                                 
                                 <!-- Required only on API pages -->
@@ -183,13 +258,20 @@
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../crypto-corner/01-mono/">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                            <span>
+                                                <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
+                                                <span class="block mt-1">Monoalphabetic Substitution Ciphers</span>
+                                            </span>
+                                        </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l rounded-r-lg transition-colors duration-150 relative hover:z-5" href="crypto-corner/00-intro/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../crypto-corner/03-vigenere/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Introduction</span>
+                                                <span class="block mt-1">Vigenère Cipher</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -233,6 +315,6 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script>window.__DOCS__ = { "title": "Cryptography Notes", isRoot: true, level: 0, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
+    <script>window.__DOCS__ = { "title": "Hill Cipher", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: true }</script>
 </body>
 </html>
