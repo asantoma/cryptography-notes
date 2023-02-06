@@ -25,9 +25,11 @@ To encrypt each digraph, we perform a matrix multiplication. 2-dimensional matri
 
 $$ \begin{pmatrix} a && b \\ c && d \end{pmatrix} \begin{pmatrix} x && y \end{pmatrix} = \begin{pmatrix} ax + by \\ cx + dy\end{pmatrix} $$
 
-In general, when we multiply two matrices, there are two things to keep in mind:
+!!!secondary Matrix multiplication
+When we multiply two matrices, there are two things to keep in mind:
 * the first matrix's column number must be equal to the second matrix's row number
 * if the first matrix is of dimension $(M, N)$ and the second matrix is of dimension $(N, P)$, their product is of dimension $(M, P)$
+!!!
   
 The first encrypted digraph is computed as follows:
 

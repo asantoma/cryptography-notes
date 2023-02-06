@@ -17,10 +17,10 @@ For modulus of negative numbers with respect to $m$, we must add $m$ to the nega
 
 A modular multiplicative inverse of $a$ with respect to modulus $m$, denoted $a^{-1}$ exists if $aa^{-1} \equiv 1 \pmod {m}$.
 
-$a^{-1}$ exists if and only if $gcd(a, m) = 1$, that is, $a$ and $m$ are **relatively prime** or **coprime**.
+$a^{-1}$ exists if and only if $gcd(a, m) = 1$, that is, $a$ and $m$ are *relatively prime* or *coprime*. Thus:
 
 !!!primary
-Thus, if $m$ is prime, for each $0 < a < m$, there exists a modular multiplicative inverse $a^{-1}$.
+If $m$ is prime, for each $0 < a < m$, there exists a modular multiplicative inverse $a^{-1}$.
 !!!
 
 ## Euler's totient function
