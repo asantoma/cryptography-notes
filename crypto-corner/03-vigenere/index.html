@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/cryptography-notes">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.729012721692">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.729018122748">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -12,7 +12,7 @@
     <!-- Primary Meta Tags -->
     <title>Vigen&#232;re Cipher</title>
     <meta name="title" content="Vigenère Cipher">
-    <meta name="description" content="Information and images are taken from Crypto Corner. Additional sources are explicitly mentioned." />
+    <meta name="description" content="The Vigenère cipher is a polyalphabetic substitution cipher, meaning it uses multiple substitution alphabets." />
 
     <!-- Canonical -->
     <link rel="canonical" href="https://asantoma.github.io/cryptography-notes/crypto-corner/03-vigenere/" />
@@ -21,21 +21,23 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://asantoma.github.io/cryptography-notes/crypto-corner/03-vigenere/">
     <meta property="og:title" content="Vigenère Cipher">
-    <meta property="og:description" content="Information and images are taken from Crypto Corner. Additional sources are explicitly mentioned.">
+    <meta property="og:description" content="The Vigenère cipher is a polyalphabetic substitution cipher, meaning it uses multiple substitution alphabets.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://asantoma.github.io/cryptography-notes/crypto-corner/03-vigenere/">
     <meta property="twitter:title" content="Vigenère Cipher">
-    <meta property="twitter:description" content="Information and images are taken from Crypto Corner. Additional sources are explicitly mentioned.">
+    <meta property="twitter:description" content="The Vigenère cipher is a polyalphabetic substitution cipher, meaning it uses multiple substitution alphabets.">
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/cryptography-notes/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=2.4.0.729012721692" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=2.4.0.729018122748" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.729012721692" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.729018122748" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.729012721692" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.729018122748" data-turbo-eval="false" defer></script>
+    <link href="../../resources/css/katex.css?v=2.4.0" rel="stylesheet" />
+    <script id="katex-js" type="text/javascript" src="../../resources/js/katex.js?v=2.4.0" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -173,6 +175,54 @@
         <span>Vigenère Cipher</span>
     </h1>
 </doc-anchor-target>
+<p>The Vigenère cipher is a polyalphabetic substitution cipher, meaning it uses multiple substitution alphabets. The cipher makes use of a table of alphabets called <em>tabula recta</em>. The tabula recta consists of the English alphabet written 26 times in different rows, each row being shifted one position to the left compared to the previous row (the first row is just the plain English alphabet). So, all rows actually make up the 26 possible Caesar cipher alphabets, starting from the first one with shift 0 and ending with the last one with shift 25. Yet again, the cipher alphabet is made up of the 26 English letters.</p>
+<p>The rows and columns are indexed using the letters of the alphabet. Thus, the first row corresponds to A, the last one to Z and the same for columns.</p>
+<p><figure class="content-center">
+    <img src="./images/tabula_recta.png" alt="Tabula Recta (source: Wikipedia)" />
+    <figcaption class="caption">Tabula Recta (<em>source: Wikipedia</em>)</figcaption>
+</figure>
+</p>
+<doc-anchor-target id="encryption">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#encryption">#</doc-anchor-trigger>
+        <span>Encryption</span>
+    </h2>
+</doc-anchor-target>
+<p>The key used for encryption is a word. To encrypt a message, we place the key under the plaintext (from which spaces and other non-alphabet characters were stripped) and we repeat the key until we &quot;cover&quot; all of the plaintext message. For example, if the plaintext message is &quot;a simple example&quot; and the key is &quot;battista&quot;, we would get this:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">ASIMPLEEXAMPLE
+BATTISTABATTIS</code></pre>
+</doc-codeblock></div>
+<p>Each pair of message and key characters gets encrypted to the character in tabula recta that corresponds to the row indicated by the plaintext character and the column indicated by the key character.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">ASIMPLEEXAMPLE
+BATTISTABATTIS
+==============
+BSBFXDXEYAFITW</code></pre>
+</doc-codeblock></div>
+<p>Mathematically speaking, Vigenère encryption <span class="math">E</span> using key <span class="math">K</span> can be written as:</p>
+<p><span class="math">C_{i} = E_{k}(M_{i}) = M_{i} + K_{i} \pmod{26}</span></p>
+<p>where <span class="math">M = M_{1}M_{2}...M_{n}</span> is the plaintext, <span class="math">K = K_{1}K_{2}...K_{n}</span> is the repeated key, and <span class="math">C = C_{1}C_{2}...C_{n}</span> is the ciphertext.</p>
+<doc-anchor-target id="decryption">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#decryption">#</doc-anchor-trigger>
+        <span>Decryption</span>
+    </h2>
+</doc-anchor-target>
+<p>Decryption is done by reverting the process for encryption. We write the repeated key under the ciphertext and each pair of ciphertext and key characters and perform the following:</p>
+<ul>
+<li>identify the column with the corresponding key character &quot;index&quot; (letter index)</li>
+<li>the row &quot;index&quot; which contains the ciphertext is the plaintext character</li>
+</ul>
+<p>Mathematically speaking,</p>
+<p><span class="math">M_{i} = C_{i} - K_{i} \pmod{26}</span></p>
+<doc-anchor-target id="breaking-the-unbreakable-cipher">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#breaking-the-unbreakable-cipher">#</doc-anchor-trigger>
+        <span>Breaking the Unbreakable Cipher</span>
+    </h2>
+</doc-anchor-target>
+<p>For long, the Vigenère cipher was thought to be unbreakable. Its most important strength is the fact that it is immune to frequency analysis because multiple alphabets are used in encryption so a plaintext character doesn&#x27;t always get encrypted to the same ciphertext character. Its weakness lies in the repetition of the key. The cipher was broken by Friedrich Kasisksi.</p>
 <div class="flex mb-6">
     <div class="shrink-0 w-1 rounded-tl rounded-bl bg-gray-300 dark:bg-dark-900"></div>
     <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
@@ -257,6 +307,6 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script>window.__DOCS__ = { "title": "Vigenère Cipher", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
+    <script>window.__DOCS__ = { "title": "Vigenère Cipher", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: true }</script>
 </body>
 </html>
