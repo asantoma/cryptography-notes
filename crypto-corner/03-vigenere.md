@@ -5,6 +5,11 @@ label: Vigenère Cipher
 
 # Vigenère Cipher
 
+!!!ghost Disclaimer
+Information and images are taken from [Crypto Corner](https://crypto.interactive-maths.com/). Additional sources are explicitly mentioned.
+!!!
+
+
 The Vigenère cipher is a polyalphabetic substitution cipher, meaning it uses multiple substitution alphabets. The cipher makes use of a table of alphabets called *tabula recta*. The tabula recta consists of the English alphabet written 26 times in different rows, each row being shifted one position to the left compared to the previous row (the first row is just the plain English alphabet). So, all rows actually make up the 26 possible Caesar cipher alphabets, starting from the first one with shift 0 and ending with the last one with shift 25. Yet again, the cipher alphabet is made up of the 26 English letters.
 
 The rows and columns are indexed using the letters of the alphabet. Thus, the first row corresponds to A, the last one to Z and the same for columns.
@@ -49,7 +54,3 @@ $$ M_{i} = C_{i} - K_{i} \pmod{26} $$
 ## Breaking the Unbreakable Cipher
 
 For long, the Vigenère cipher was thought to be unbreakable. Its most important strength is the fact that it is immune to frequency analysis because multiple alphabets are used in encryption so a plaintext character doesn't always get encrypted to the same ciphertext character. Its weakness lies in the repetition of the key. The cipher was broken by Friedrich Kasisksi.
-
-!!!ghost Disclaimer
-Information and images are taken from [Crypto Corner](https://crypto.interactive-maths.com/). Additional sources are explicitly mentioned.
-!!!
