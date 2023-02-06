@@ -3,8 +3,10 @@ order: 0
 label: Introduction
 ---
 
+# Introduction
+
 !!!ghost Disclaimer
-Information and images are taken from [Crypto Corner](https://crypto.interactive-maths.com/). Additional sources are explicitly mentioned, where necessary.
+Information and images are taken from [Crypto Corner](https://crypto.interactive-maths.com/). Additional sources are explicitly mentioned.
 !!!
 
 ## Steganography
@@ -22,3 +24,8 @@ Codes are ways of changing messages by replacing each word with another word tha
 !!!primary Cipher
 Ciphers convert messages by a rule, known only to the sender and recipient, which changes each individual letter (or sometimes groups of letters)
 !!!
+
+## Conventions
+* **plaintext** = the message that is being encrypted
+* **ciphertext** = the encrypted message
+* **alphabet** = letters and symbols which will be transformed by the cipher 

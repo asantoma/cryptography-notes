@@ -1,9 +1,9 @@
 input: .
 output: .retype
-url: https://asantoma.github.io/notes/
+url: https://asantoma.github.io/cryptography-notes/
 branding:
-  title: asantoma's notes
-  label: Docs
+  title: asantoma's cryptography notes
+  label: 
 links:
 - text: Getting Started
   link: https://retype.com/guides/getting-started/
