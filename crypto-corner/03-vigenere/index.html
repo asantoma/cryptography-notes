@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/cryptography-notes">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.729018207977">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.729018266972">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -22,20 +22,22 @@
     <meta property="og:url" content="https://asantoma.github.io/cryptography-notes/crypto-corner/03-vigenere/">
     <meta property="og:title" content="Vigenère Cipher">
     <meta property="og:description" content="Information and images are taken from Crypto Corner. Additional sources are explicitly mentioned.">
+    <meta property="og:image" content="https://asantoma.github.io/cryptography-notes/crypto-corner/images/tabula_recta.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://asantoma.github.io/cryptography-notes/crypto-corner/03-vigenere/">
     <meta property="twitter:title" content="Vigenère Cipher">
     <meta property="twitter:description" content="Information and images are taken from Crypto Corner. Additional sources are explicitly mentioned.">
+    <meta property="twitter:image" content="https://asantoma.github.io/cryptography-notes/crypto-corner/images/tabula_recta.png">
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/cryptography-notes/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=2.4.0.729018207977" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=2.4.0.729018266972" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.729018207977" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.729018266972" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.729018207977" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.729018266972" data-turbo-eval="false" defer></script>
     <link href="../../resources/css/katex.css?v=2.4.0" rel="stylesheet" />
     <script id="katex-js" type="text/javascript" src="../../resources/js/katex.js?v=2.4.0" defer></script>
 </head>
@@ -196,7 +198,7 @@
 <p>The Vigenère cipher is a polyalphabetic substitution cipher, meaning it uses multiple substitution alphabets. The cipher makes use of a table of alphabets called <em>tabula recta</em>. The tabula recta consists of the English alphabet written 26 times in different rows, each row being shifted one position to the left compared to the previous row (the first row is just the plain English alphabet). So, all rows actually make up the 26 possible Caesar cipher alphabets, starting from the first one with shift 0 and ending with the last one with shift 25. Yet again, the cipher alphabet is made up of the 26 English letters.</p>
 <p>The rows and columns are indexed using the letters of the alphabet. Thus, the first row corresponds to A, the last one to Z and the same for columns.</p>
 <p><figure class="content-center">
-    <img src="./images/tabula_recta.png" alt="Tabula Recta (source: Wikipedia)" />
+    <img src="../images/tabula_recta.png" alt="Tabula Recta (source: Wikipedia)" />
     <figcaption class="caption">Tabula Recta (<em>source: Wikipedia</em>)</figcaption>
 </figure>
 </p>
