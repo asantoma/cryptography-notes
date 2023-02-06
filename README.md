@@ -1,3 +1,3 @@
-# Home
+# Cryptography Notes
 
-Thou shall not become exempt from the consequences of thy actions... Thou shall receive judgement...
+A collection of notes on cryptography related subjects.
