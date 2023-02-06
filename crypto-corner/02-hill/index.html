@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/cryptography-notes">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.729012199800">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.729012721692">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -31,11 +31,11 @@
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/cryptography-notes/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=2.4.0.729012199800" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=2.4.0.729012721692" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.729012199800" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.729012721692" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.729012199800" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.729012721692" data-turbo-eval="false" defer></script>
     <link href="../../resources/css/katex.css?v=2.4.0" rel="stylesheet" />
     <script id="katex-js" type="text/javascript" src="../../resources/js/katex.js?v=2.4.0" defer></script>
 </head>
@@ -248,7 +248,7 @@
 <p><span class="math">adj(K) = \begin{pmatrix} 11 &amp;&amp; -8 \\ -11 &amp;&amp; 7 \end{pmatrix} \pmod{26} = \begin{pmatrix} 11 &amp;&amp; 18 \\ 15 &amp;&amp; 17 \end{pmatrix} \pmod{26}</span></p>
 <p><span class="math">K^{-1} = 7\begin{pmatrix} 11 &amp;&amp; 18 \\ 15 &amp;&amp; 17 \end{pmatrix} = \begin{pmatrix} 77 &amp;&amp; 126 \\ 165 &amp;&amp; 49 \end{pmatrix} \pmod{26} = \begin{pmatrix} 25 &amp;&amp; 22 \\ 1 &amp;&amp; 23 \end{pmatrix} \pmod{26}</span></p>
 <p>Let&#x27;s try decrypting the first encrypted digraph, <span class="math">\begin{pmatrix} A \\ P \end{pmatrix} = \begin{pmatrix} 0 \\ 15 \end{pmatrix}</span></p>
-<p><span class="math">K^{-1}\begin{pmatrix} 0 \\ 15 \end{pmatrix} = \begin{pmatrix} 25 &amp;&amp; 22 \\ 1 &amp;&amp; 23 \end{pmatrix} \begin{pmatrix} 0 \\ 15 \end{pmatrix} = \begin{pmatrix} 25 \cdot 0 + 22 \cdot 15 \\ 1 \cdot 0 + 23 \cdot 15 \end{pmatrix} = \begin{pmatrix} 330 \\ 345 \end{pmatrix} \pmod{26} = \begin{pmatrix} 18 \\ 7 \end{pmatrix} \pmod{26} = \begin{pmatrix} A \\ L \end{pmatrix}</span></p>
+<p><span class="math">K^{-1}\begin{pmatrix} 0 \\ 15 \end{pmatrix} = \begin{pmatrix} 25 &amp;&amp; 22 \\ 1 &amp;&amp; 23 \end{pmatrix} \begin{pmatrix} 0 \\ 15 \end{pmatrix} = \begin{pmatrix} 25 \cdot 0 + 22 \cdot 15 \\ 1 \cdot 0 + 23 \cdot 15 \end{pmatrix} = \begin{pmatrix} 330 \\ 345 \end{pmatrix} \pmod{26} = \begin{pmatrix} 18 \\ 7 \end{pmatrix} \pmod{26} = \begin{pmatrix} S \\ H \end{pmatrix}</span></p>
 
                                 
                                 <!-- Required only on API pages -->
