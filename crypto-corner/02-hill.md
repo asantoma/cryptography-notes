@@ -63,7 +63,7 @@ $$ K^{-1} = 7\begin{pmatrix} 11 && 18 \\ 15 && 17 \end{pmatrix} = \begin{pmatrix
 
 Let's try decrypting the first encrypted digraph, $ \begin{pmatrix} A \\ P \end{pmatrix} = \begin{pmatrix} 0 \\ 15 \end{pmatrix} $
 
-$$ K^{-1}\begin{pmatrix} 0 \\ 15 \end{pmatrix} = \begin{pmatrix} 25 && 22 \\ 1 && 23 \end{pmatrix} \begin{pmatrix} 0 \\ 15 \end{pmatrix} = \begin{pmatrix} 25 \cdot 0 + 22 \cdot 15 \\ 1 \cdot 0 + 23 \cdot 15 \end{pmatrix} = \begin{pmatrix} 330 \\ 345 \end{pmatrix} \pmod{26} = \begin{pmatrix} 18 \\ 7 \end{pmatrix} \pmod{26} = \begin{pmatrix} A \\ L \end{pmatrix} $$
+$$ K^{-1}\begin{pmatrix} 0 \\ 15 \end{pmatrix} = \begin{pmatrix} 25 && 22 \\ 1 && 23 \end{pmatrix} \begin{pmatrix} 0 \\ 15 \end{pmatrix} = \begin{pmatrix} 25 \cdot 0 + 22 \cdot 15 \\ 1 \cdot 0 + 23 \cdot 15 \end{pmatrix} = \begin{pmatrix} 330 \\ 345 \end{pmatrix} \pmod{26} = \begin{pmatrix} 18 \\ 7 \end{pmatrix} \pmod{26} = \begin{pmatrix} S \\ H \end{pmatrix} $$
 
 
 
