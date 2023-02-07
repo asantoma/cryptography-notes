@@ -10,24 +10,26 @@
     <meta name="generator" content="Retype 2.4.0">
 
     <!-- Primary Meta Tags -->
-    <title>Introduction</title>
-    <meta name="title" content="Introduction">
+    <title>DES</title>
+    <meta name="title" content="DES">
     <meta name="description" content="Information and images are taken from Understanding Cryptography. Additional sources are explicitly mentioned." />
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://asantoma.github.io/cryptography-notes/understanding-cryptography/00-intro/" />
+    <link rel="canonical" href="https://asantoma.github.io/cryptography-notes/understanding-cryptography/02-des/" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://asantoma.github.io/cryptography-notes/understanding-cryptography/00-intro/">
-    <meta property="og:title" content="Introduction">
+    <meta property="og:url" content="https://asantoma.github.io/cryptography-notes/understanding-cryptography/02-des/">
+    <meta property="og:title" content="DES">
     <meta property="og:description" content="Information and images are taken from Understanding Cryptography. Additional sources are explicitly mentioned.">
+    <meta property="og:image" content="https://asantoma.github.io/cryptography-notes/understanding-cryptography/images/des_structure.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://asantoma.github.io/cryptography-notes/understanding-cryptography/00-intro/">
-    <meta property="twitter:title" content="Introduction">
+    <meta property="twitter:url" content="https://asantoma.github.io/cryptography-notes/understanding-cryptography/02-des/">
+    <meta property="twitter:title" content="DES">
     <meta property="twitter:description" content="Information and images are taken from Understanding Cryptography. Additional sources are explicitly mentioned.">
+    <meta property="twitter:image" content="https://asantoma.github.io/cryptography-notes/understanding-cryptography/images/des_structure.png">
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/cryptography-notes/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
@@ -36,6 +38,8 @@
     <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.729092078835" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
     <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.729092078835" data-turbo-eval="false" defer></script>
+    <link href="../../resources/css/katex.css?v=2.4.0" rel="stylesheet" />
+    <script id="katex-js" type="text/javascript" src="../../resources/js/katex.js?v=2.4.0" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -167,10 +171,10 @@
                                 <div id="docs-sidebar-right-toggle"></div>
                 
                                 <!-- Page content  -->
-<doc-anchor-target id="introduction" class="break-words">
+<doc-anchor-target id="des" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#introduction">#</doc-anchor-trigger>
-        <span>Introduction</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#des">#</doc-anchor-trigger>
+        <span>DES</span>
     </h1>
 </doc-anchor-target>
 <div class="flex mb-6">
@@ -191,17 +195,108 @@
         </div>
     </div>
 </div>
-<p>Modern cryptography is split as follows:</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>Confusion and Diffusion</h5>
+<p><strong>Confusion</strong> is an encryption operation where the relationship between key and ciphertext is obscured.</p>
+<p><strong>Diffusion</strong> is an encryption operation where the influence of one plaintext symbol is spread over many ciphertext symbols with the goal of hiding statistical properties of the plaintext.</p>
+<p>Ciphers which only perform confusion are not secure. Neither are ciphers which only perform diffusion. However, through the concatenation of such operations, a strong cipher can be built.</p>
+        </div>
+    </div>
+</div>
+<doc-anchor-target id="overview">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#overview">#</doc-anchor-trigger>
+        <span>Overview</span>
+    </h2>
+</doc-anchor-target>
+<p>Main DES features:</p>
 <ul>
-<li>Symmetric ciphers
+<li>symmetric cipher</li>
+<li>block cipher</li>
+<li>64-bit block size</li>
+<li>56-bit key size</li>
+</ul>
+<p>DES is an iterative algorithm, with encryption being handled in 16 rounds each performing the same operation. The subkey <span class="math">k_{i}</span> for each round is derived from the main key <span class="math">k</span>. The underlying structure of DES is called a <em>Feistel network</em>.</p>
+<p><figure class="content-center">
+    <img src="../images/des_structure.png" alt="Structure of DES" />
+    <figcaption class="caption">Structure of DES</figcaption>
+</figure>
+</p>
+<p>After the initial bitwise permutation <span class="math">IP</span> of a 64-bit plaintext <span class="math">x</span>, the plaintext is split into two halves <span class="math">L_0</span> and <span class="math">R_0</span>. These two 32-bit halves are the input to the Feistel
+network, which consists of 16 rounds. The right half <span class="math">R_i</span> is fed into the function <span class="math">f</span>. The output of the <span class="math">f</span> function is XORed (denoted by the symbol <span class="math">\oplus</span>) with the left 32-bit half <span class="math">L_i</span>. Finally, the right and left half are swapped. This process repeats in the next round. Generally:</p>
+<div class="math"><pre>\begin{gather}
+L_i = R_{i-1}\notag\\
+R_i = L_{i-1} \oplus f(R_{i-1}, k_i)\notag\\
+\end{gather}</pre></div>
+<p>After round 16, the 32-bit halves <span class="math">L_{16}</span> and <span class="math">R_{16}</span> are swapped again, and the final permutation <span class="math">IP^{−1}</span> is the last operation of DES. As the notation suggests, <span class="math">IP^{−1}</span> is the inverse of the initial permutation <span class="math">IP</span>. In each round, a round key <span class="math">k_{i}</span> is derived from the main 56-bit key using what is called the <em>key schedule</em>.</p>
+<doc-anchor-target id="internal-structure">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#internal-structure">#</doc-anchor-trigger>
+        <span>Internal Structure</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="initial-and-final-permutations">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#initial-and-final-permutations">#</doc-anchor-trigger>
+        <span>Initial and final permutations</span>
+    </h3>
+</doc-anchor-target>
+<p>These are just basic bitwise permutations. Both permutations do not increase the security of DES at all. The exact rationale for the existence of these two permutations is not known, but it seems likely that their original purpose was to arrange the plaintext, ciphertext and bits in a bytewise manner to make data fetches easier for 8-bit data busses, which were the state-of-the-art register size in the early 1970s.</p>
+<doc-anchor-target id="-function">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#-function">#</doc-anchor-trigger>
+        <span><span class="math">f</span> function</span>
+    </h3>
+</doc-anchor-target>
+<p>The <span class="math">f</span> function plays a crucial role for the security of DES. In round <span class="math">i</span> it takes the right half <span class="math">R_{i−1}</span> of the output (32 bits) of the previous round and the current round key <span class="math">k_i</span> as input. The output of the <span class="math">f</span> function is used as an XOR-mask for encrypting the left half input bits <span class="math">L_{i−1}</span>.</p>
+<p>In short, the steps performed are:</p>
 <ul>
-<li>Stream ciphers (encryption is done bit by bit, each time using a new bit from key)</li>
-<li>Block ciphers (encryption is done in a block of bits, each time with the same key)</li>
+<li>expansion of the 32-bit input to 48 bits using a speciall type of permutation called <em>E-box</em></li>
+<li>48-bit result is XOR-ed with <span class="math">k_{i}</span></li>
+<li>result is divided in eight 6-bit blocks and fed into eight <span class="math">S-boxes</span> (substitution boxes). Each S-box maps a 6-bit input to a 4-bit output</li>
+<li>finally, the 32-bit (eight 4-bit S-box outputs) output is fed into a permutation called <span class="math">P</span>, which causes diffusion</li>
 </ul>
-</li>
-<li>Assymetric (Public-Key) ciphers</li>
-<li>Protocols</li>
-</ul>
+<p><figure class="content-center">
+    <img src="../images/des_f.png" alt="DES f function" />
+    <figcaption class="caption">DES <span class="math">f</span> function</figcaption>
+</figure>
+</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+<p>The S-box is the most crucial element of DES because it introduces non-linearity</p>
+        </div>
+    </div>
+</div>
+<doc-anchor-target id="key-schedule">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#key-schedule">#</doc-anchor-trigger>
+        <span>Key schedule</span>
+    </h3>
+</doc-anchor-target>
+<p>The key schedule derives 16 round keys <span class="math">k_i</span>, each consisting of 48 bits, from the original 56-bit key. Another term for round key is subkey. First, note that the DES input key is often stated as 64-bit, where every eighth bit is used as an odd parity bit over the preceding seven bits. It is not quite clear why DES was specified that way. In any case, the eight parity bits are not actual key bits and do not increase the security. DES is a 56-bit cipher, not a 64-bit one.</p>
 
                                 
                                 <!-- Required only on API pages -->
@@ -211,20 +306,20 @@
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../crypto-corner/03-vigenere/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../understanding-cryptography/01-stream-ciphers/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Vigenère Cipher</span>
+                                                <span class="block mt-1">Stream Ciphers</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../understanding-cryptography/01-stream-ciphers/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../appendix/00-modular/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Stream Ciphers</span>
+                                                <span class="block mt-1">Modular Arithmetics</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -268,6 +363,6 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script>window.__DOCS__ = { "title": "Introduction", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
+    <script>window.__DOCS__ = { "title": "DES", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: true }</script>
 </body>
 </html>
