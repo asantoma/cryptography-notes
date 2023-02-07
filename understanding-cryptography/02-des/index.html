@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/cryptography-notes">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.729092078835">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.729104754892">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -33,11 +33,11 @@
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/cryptography-notes/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=2.4.0.729092078835" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=2.4.0.729104754892" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.729092078835" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.729104754892" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.729092078835" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.729104754892" data-turbo-eval="false" defer></script>
     <link href="../../resources/css/katex.css?v=2.4.0" rel="stylesheet" />
     <script id="katex-js" type="text/javascript" src="../../resources/js/katex.js?v=2.4.0" defer></script>
 </head>
@@ -221,13 +221,7 @@
         <span>Overview</span>
     </h2>
 </doc-anchor-target>
-<p>Main DES features:</p>
-<ul>
-<li>symmetric cipher</li>
-<li>block cipher</li>
-<li>64-bit block size</li>
-<li>56-bit key size</li>
-</ul>
+<p>AES is a symmetric block cipher with 64-bit block size and 56-bit key size.</p>
 <p>DES is an iterative algorithm, with encryption being handled in 16 rounds each performing the same operation. The subkey <span class="math">k_{i}</span> for each round is derived from the main key <span class="math">k</span>. The underlying structure of DES is called a <em>Feistel network</em>.</p>
 <p><figure class="content-center">
     <img src="../images/des_structure.png" alt="Structure of DES" />
@@ -265,8 +259,8 @@ R_i = L_{i-1} \oplus f(R_{i-1}, k_i)\notag\\
 <ul>
 <li>expansion of the 32-bit input to 48 bits using a speciall type of permutation called <em>E-box</em></li>
 <li>48-bit result is XOR-ed with <span class="math">k_{i}</span></li>
-<li>result is divided in eight 6-bit blocks and fed into eight <span class="math">S-boxes</span> (substitution boxes). Each S-box maps a 6-bit input to a 4-bit output</li>
-<li>finally, the 32-bit (eight 4-bit S-box outputs) output is fed into a permutation called <span class="math">P</span>, which causes diffusion</li>
+<li>result is divided in eight 6-bit blocks and fed into eight different <span class="math">S-boxes</span> (substitution boxes). Each S-box maps a 6-bit input to a 4-bit output, which causes <strong>confusion</strong></li>
+<li>finally, the 32-bit (eight 4-bit S-box outputs) output is fed into a permutation called <span class="math">P</span>, which causes <strong>diffusion</strong></li>
 </ul>
 <p><figure class="content-center">
     <img src="../images/des_f.png" alt="DES f function" />
@@ -297,6 +291,20 @@ R_i = L_{i-1} \oplus f(R_{i-1}, k_i)\notag\\
     </h3>
 </doc-anchor-target>
 <p>The key schedule derives 16 round keys <span class="math">k_i</span>, each consisting of 48 bits, from the original 56-bit key. Another term for round key is subkey. First, note that the DES input key is often stated as 64-bit, where every eighth bit is used as an odd parity bit over the preceding seven bits. It is not quite clear why DES was specified that way. In any case, the eight parity bits are not actual key bits and do not increase the security. DES is a 56-bit cipher, not a 64-bit one.</p>
+<doc-anchor-target id="decryption">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#decryption">#</doc-anchor-trigger>
+        <span>Decryption</span>
+    </h2>
+</doc-anchor-target>
+<p>One advantage of DES is that decryption is essentially the same function as encryption. This is because DES is based on a Feistel network.</p>
+<doc-anchor-target id="security">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#security">#</doc-anchor-trigger>
+        <span>Security</span>
+    </h2>
+</doc-anchor-target>
+<p>DES is not considered secure anymore because of the small key size. However, 3DES (triple-DES, which means three successive DES applications) is still used and viable.</p>
 
                                 
                                 <!-- Required only on API pages -->

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/cryptography-notes">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.729092078835">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.729104754892">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -31,11 +31,11 @@
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/cryptography-notes/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=2.4.0.729092078835" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=2.4.0.729104754892" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.729092078835" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.729104754892" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.729092078835" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.729104754892" data-turbo-eval="false" defer></script>
     <link href="../../resources/css/katex.css?v=2.4.0" rel="stylesheet" />
     <script id="katex-js" type="text/javascript" src="../../resources/js/katex.js?v=2.4.0" defer></script>
 </head>
@@ -237,6 +237,33 @@
 <p>where <span class="math">p_1, p_2, ..., p_k</span> are the distinct prime factors of <span class="math">n</span> (that is, <span class="math">n = p_{1}^{e_1} \cdot p_{1}^{e_1} \cdot ... \cdot p_{k}^{e_k}</span>).</p>
 <p>For example, <span class="math">\varphi(20) = 20\cdot(1-1/2)\cdot(1-1/5) = 20\cdot(1/2)\cdot(4/5) = 8</span> because <span class="math">20 = 2^2\cdot 5</span>. The numbers coprime to 20 and smaller than 20 are 3, 5, 7, 9, 11, 13, 17, 19.</p>
 <p><span class="math">\varphi(26) = 26\cdot(1-1/2)\cdot(1-1/13) = 26\cdot(1/2)\cdot(12/13)=12</span>.</p>
+<doc-anchor-target id="fermats-little-theorem">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#fermats-little-theorem">#</doc-anchor-trigger>
+        <span>Fermat&#x27;s little theorem</span>
+    </h2>
+</doc-anchor-target>
+<p>If <span class="math">p</span> is prime, then, for any integer <span class="math">a</span> the following holds:</p>
+<p><span class="math">a^p \equiv a \pmod{p}</span></p>
+<p>If <span class="math">p</span> and <span class="math">a</span> are coprime, then:</p>
+<p><span class="math">a^{p-1} \equiv 1 \pmod{p}</span></p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+<p>If <span class="math">a</span> and <span class="math">p</span> are coprime, <span class="math">a^{-1} \equiv a^{p-2} \pmod{p}</span></p>
+        </div>
+    </div>
+</div>
 
                                 
                                 <!-- Required only on API pages -->
