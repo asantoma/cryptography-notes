@@ -15,7 +15,7 @@ Information and images are taken from [Understanding Cryptography](http://swarm.
 In practice, block ciphers are used more than stream ciphers.
 !!!
 
-How do stream ciphers work? It's simple: each plaintext bit $x_{i}$ is encrypted by adding a keystream bit $s_{i}$ modulo 2 (which is the equivalent of XOR).
+How do stream ciphers work? It's simple: each plaintext bit $x_{i}$ is encrypted by adding a keystream bit $s_{i}$ modulo 2 (which is the equivalent of XOR). Stream ciphers encrypt bits individually. There are synchronous stream ciphers where the key stream depends only on the key, and asynchronous ones where the key stream also depends on the ciphertext.
 
 Encryption: $y_{i} = x_{i} + s_{i} \pmod{2}$
 
