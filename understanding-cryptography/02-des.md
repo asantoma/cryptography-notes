@@ -20,7 +20,7 @@ Ciphers which only perform confusion are not secure. Neither are ciphers which o
 
 ## Overview
 
-AES is a symmetric block cipher with 64-bit block size and 56-bit key size.
+DES is a symmetric block cipher with 64-bit block size and 56-bit key size.
 
 DES is an iterative algorithm, with encryption being handled in 16 rounds each performing the same operation. The subkey $k_{i}$ for each round is derived from the main key $k$. The underlying structure of DES is called a *Feistel network*.
 
