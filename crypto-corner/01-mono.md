@@ -36,7 +36,7 @@ $D(i, K) = i - K \pmod{26}$
 
 ### Observations
 
-Modulo is needed because we are stuck in the 26-letter alphabet. Thus, a key of 1 is the same as a key of 27 because $1 \pmod{26} = 27 \pmod{26}$.
+Modulo is needed because we are limited to the 26-letter alphabet. Thus, a key of 1 is the same as a key of 27 because $1 \pmod{26} = 27 \pmod{26}$.
 
 Regarding the fact that applying a monoalphabetic substitution cipher multiple times is equivalent to applying it once:
 
