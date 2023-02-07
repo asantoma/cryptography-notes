@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/cryptography-notes">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.729111920815">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.729128561269">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -31,11 +31,11 @@
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/cryptography-notes/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=2.4.0.729111920815" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=2.4.0.729128561269" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.729111920815" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.729128561269" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.729111920815" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.729128561269" data-turbo-eval="false" defer></script>
     <link href="../../resources/css/katex.css?v=2.4.0" rel="stylesheet" />
     <script id="katex-js" type="text/javascript" src="../../resources/js/katex.js?v=2.4.0" defer></script>
 </head>
@@ -216,7 +216,7 @@
         </div>
     </div>
 </div>
-<p>How do stream ciphers work? It&#x27;s simple: each plaintext bit <span class="math">x_{i}</span> is encrypted by adding a keystream bit <span class="math">s_{i}</span> modulo 2 (which is the equivalent of XOR).</p>
+<p>How do stream ciphers work? It&#x27;s simple: each plaintext bit <span class="math">x_{i}</span> is encrypted by adding a keystream bit <span class="math">s_{i}</span> modulo 2 (which is the equivalent of XOR). Stream ciphers encrypt bits individually. There are synchronous stream ciphers where the key stream depends only on the key, and asynchronous ones where the key stream also depends on the ciphertext.</p>
 <p>Encryption: <span class="math">y_{i} = x_{i} + s_{i} \pmod{2}</span></p>
 <p>Decryption: <span class="math">x_{i} = y_{i} + s_{i} \pmod{2}</span></p>
 <p>Encryption and decryption are actually the same function.</p>
