@@ -11,9 +11,9 @@ Information and images are taken from [Understanding Cryptography](http://swarm.
 
 !!!Confusion and Diffusion
 
-**Confusion** is an encryption operation where the relationship between key and ciphertext is obscured.
+**Confusion** is an encryption operation where the relationship between key and ciphertext is obscured. Confusion can be achieved through substitution.
 
-**Diffusion** is an encryption operation where the influence of one plaintext symbol is spread over many ciphertext symbols with the goal of hiding statistical properties of the plaintext. 
+**Diffusion** is an encryption operation where the influence of one plaintext symbol is spread over many ciphertext symbols with the goal of hiding statistical properties of the plaintext. Diffusion can be achieved through transposition.
 
 Ciphers which only perform confusion are not secure. Neither are ciphers which only perform diffusion. However, through the concatenation of such operations, a strong cipher can be built.
 !!!
@@ -51,7 +51,7 @@ The $f$ function plays a crucial role for the security of DES. In round $i$ it t
 In short, the steps performed are:
 * expansion of the 32-bit input to 48 bits using a speciall type of permutation called *E-box*
 * 48-bit result is XOR-ed with $k_{i}$
-* result is divided in eight 6-bit blocks and fed into eight different $S-boxes$ (substitution boxes). Each S-box maps a 6-bit input to a 4-bit output, which causes **confusion**
+* result is divided in eight 6-bit blocks and fed into eight different $S\text{-}boxes$ (substitution boxes). Each S-box maps a 6-bit input to a 4-bit output, which causes **confusion**
 * finally, the 32-bit (eight 4-bit S-box outputs) output is fed into a permutation called $P$, which causes **diffusion**
 
 

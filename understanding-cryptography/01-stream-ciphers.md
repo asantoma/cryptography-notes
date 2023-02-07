@@ -29,7 +29,7 @@ Generation of values $s_{i}$ is the central issue for the security of stream cip
 
 ## RNG and One-Time Pad
 
-### True Random number generators (TRNG)
+### True random number generators (TRNG)
 
 * their output cannot be reproduced
 * based on physical processes, such as flipping a coin, throwing dice, or, more realistically, semiconductor noise, clock jittering, radioactive decay
