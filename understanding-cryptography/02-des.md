@@ -20,11 +20,7 @@ Ciphers which only perform confusion are not secure. Neither are ciphers which o
 
 ## Overview
 
-Main DES features:
-* symmetric cipher
-* block cipher
-* 64-bit block size
-* 56-bit key size
+AES is a symmetric block cipher with 64-bit block size and 56-bit key size.
 
 DES is an iterative algorithm, with encryption being handled in 16 rounds each performing the same operation. The subkey $k_{i}$ for each round is derived from the main key $k$. The underlying structure of DES is called a *Feistel network*.
 
@@ -55,8 +51,8 @@ The $f$ function plays a crucial role for the security of DES. In round $i$ it t
 In short, the steps performed are:
 * expansion of the 32-bit input to 48 bits using a speciall type of permutation called *E-box*
 * 48-bit result is XOR-ed with $k_{i}$
-* result is divided in eight 6-bit blocks and fed into eight $S-boxes$ (substitution boxes). Each S-box maps a 6-bit input to a 4-bit output
-* finally, the 32-bit (eight 4-bit S-box outputs) output is fed into a permutation called $P$, which causes diffusion
+* result is divided in eight 6-bit blocks and fed into eight different $S-boxes$ (substitution boxes). Each S-box maps a 6-bit input to a 4-bit output, which causes **confusion**
+* finally, the 32-bit (eight 4-bit S-box outputs) output is fed into a permutation called $P$, which causes **diffusion**
 
 
 ![DES $f$ function](./images/des_f.png)
@@ -68,3 +64,11 @@ The S-box is the most crucial element of DES because it introduces non-linearity
 ### Key schedule
 
 The key schedule derives 16 round keys $k_i$, each consisting of 48 bits, from the original 56-bit key. Another term for round key is subkey. First, note that the DES input key is often stated as 64-bit, where every eighth bit is used as an odd parity bit over the preceding seven bits. It is not quite clear why DES was specified that way. In any case, the eight parity bits are not actual key bits and do not increase the security. DES is a 56-bit cipher, not a 64-bit one.
+
+## Decryption
+
+One advantage of DES is that decryption is essentially the same function as encryption. This is because DES is based on a Feistel network.
+
+## Security 
+
+DES is not considered secure anymore because of the small key size. However, 3DES (triple-DES, which means three successive DES applications) is still used and viable.

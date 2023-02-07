@@ -38,3 +38,17 @@ where $p_1, p_2, ..., p_k$ are the distinct prime factors of $n$ (that is, $n = 
 For example, $\varphi(20) = 20\cdot(1-1/2)\cdot(1-1/5) = 20\cdot(1/2)\cdot(4/5) = 8$ because $20 = 2^2\cdot 5$. The numbers coprime to 20 and smaller than 20 are 3, 5, 7, 9, 11, 13, 17, 19.
 
 $\varphi(26) = 26\cdot(1-1/2)\cdot(1-1/13) = 26\cdot(1/2)\cdot(12/13)=12$.
+
+## Fermat's little theorem
+
+If $p$ is prime, then, for any integer $a$ the following holds:
+
+$a^p \equiv a \pmod{p}$
+
+If $p$ and $a$ are coprime, then:
+
+$a^{p-1} \equiv 1 \pmod{p}$
+
+!!!
+If $a$ and $p$ are coprime, $a^{-1} \equiv a^{p-2} \pmod{p}$
+!!!
