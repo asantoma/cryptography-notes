@@ -23,7 +23,7 @@ $$ M = \begin{pmatrix} S \\ H \end{pmatrix} \begin{pmatrix} O \\ R \end{pmatrix}
 
 To encrypt each digraph, we perform a matrix multiplication. 2-dimensional matrix multiplication is performed in the following way:
 
-$$ \begin{pmatrix} a && b \\ c && d \end{pmatrix} \begin{pmatrix} x && y \end{pmatrix} = \begin{pmatrix} ax + by \\ cx + dy\end{pmatrix} $$
+$$ \begin{pmatrix} a && b \\ c && d \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} ax + by \\ cx + dy\end{pmatrix} $$
 
 !!!secondary Matrix multiplication
 When we multiply two matrices, there are two things to keep in mind:
