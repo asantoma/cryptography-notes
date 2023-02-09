@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/cryptography-notes">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.729128561269">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.729246379234">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -31,11 +31,11 @@
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("/cryptography-notes/doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=2.4.0.729128561269" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=2.4.0.729246379234" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.729128561269" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.729246379234" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.729128561269" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.729246379234" data-turbo-eval="false" defer></script>
     <link href="../../resources/css/katex.css?v=2.4.0" rel="stylesheet" />
     <script id="katex-js" type="text/javascript" src="../../resources/js/katex.js?v=2.4.0" defer></script>
 </head>
@@ -205,7 +205,7 @@
 <p>The message &quot;short example&quot; will be encrypted. Spaces will be taken out and letters will be written into digraphs represented by 2-dimensional vectors, as such:</p>
 <p><span class="math">M = \begin{pmatrix} S \\ H \end{pmatrix} \begin{pmatrix} O \\ R \end{pmatrix} \begin{pmatrix} T \\ E \end{pmatrix} \begin{pmatrix} X \\ A \end{pmatrix} \begin{pmatrix} M \\ P \end{pmatrix} \begin{pmatrix} L \\ E \end{pmatrix} = \begin{pmatrix} 18 \\ 7 \end{pmatrix} \begin{pmatrix} 14 \\ 17 \end{pmatrix} \begin{pmatrix} 19 \\ 4 \end{pmatrix} \begin{pmatrix} 23 \\ 0 \end{pmatrix} \begin{pmatrix} 12 \\ 15 \end{pmatrix} \begin{pmatrix} 11 \\ 4 \end{pmatrix}</span></p>
 <p>To encrypt each digraph, we perform a matrix multiplication. 2-dimensional matrix multiplication is performed in the following way:</p>
-<p><span class="math">\begin{pmatrix} a &amp;&amp; b \\ c &amp;&amp; d \end{pmatrix} \begin{pmatrix} x &amp;&amp; y \end{pmatrix} = \begin{pmatrix} ax + by \\ cx + dy\end{pmatrix}</span></p>
+<p><span class="math">\begin{pmatrix} a &amp;&amp; b \\ c &amp;&amp; d \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} ax + by \\ cx + dy\end{pmatrix}</span></p>
 <div class="flex mb-6">
     <div class="shrink-0 w-1 rounded-tl rounded-bl bg-gray-500 dark:bg-dark-400"></div>
     <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
